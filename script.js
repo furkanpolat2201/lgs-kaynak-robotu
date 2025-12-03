@@ -41,7 +41,7 @@ const LGS_KAYNAKLAR = {
   }
 };
 
-// --- HTML Elementlerini Seçme ---
+
 const dersSecim = document.getElementById('ders-secim');
 const seviyeSecim = document.getElementById('seviye-secim');
 const seviyeEtiketi = document.getElementById('seviye-etiketi');
@@ -59,9 +59,7 @@ function dersleriDoldur() {
     });
 }
 
-// --- Olay Dinleyicileri (Events) ---
 
-// 1. Ders seçildiğinde çalışacak fonksiyon
 dersSecim.addEventListener('change', (event) => {
     const secilenDers = event.target.value;
     
@@ -85,7 +83,7 @@ dersSecim.addEventListener('change', (event) => {
     }
 });
 
-// 2. Seviye seçildiğinde çalışacak fonksiyon
+
 seviyeSecim.addEventListener('change', (event) => {
     const secilenDers = dersSecim.value;
     const secilenSeviye = event.target.value;
@@ -94,7 +92,7 @@ seviyeSecim.addEventListener('change', (event) => {
     if (secilenDers && secilenSeviye) {
         const kaynaklar = LGS_KAYNAKLAR[secilenDers][secilenSeviye];
 
-        // Bu kısım renkli gösterim için yeniden düzenlenmiştir.
+      
         let className = 'orta-kaynak'; // Tek seviye olduğu için varsayılan bir renk (mavi/orta) atıyoruz.
         let emoji = '🔵'; 
         
