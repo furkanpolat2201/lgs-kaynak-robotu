@@ -18,6 +18,16 @@ const LGS_KAYNAKLAR = {
     "Kolay": ["Tonguç Akademi", "Puan Yayınları", "Okyanus Classmate", "Nartest Yeşil", "Av Akıllı Versiyon Yayınları"],
     "Orta": ["Ulti", "Palme", "Limit Yayınları", "İnkılap Kafası Kafadengi", "Nartest Mavi", "Hız Yayınları", "Fenomen", "Güçlendiren İnkılap Ankara Y.", "Zoom", "Paraf"],
     "Zor": ["Sinan Kuzucu"]
+      },
+  "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ": {
+    "Kolay": ["Okyanus Yayınları CLASSMATE Soru Bankası", "Tonguç Yayınları Taktikli Soru Bankası"],
+    "Orta": ["Tonguç Yayınları Dinamo Soru Bankası",
+    "Palme Yayıncılık Konu Anlatımlı",
+    "Tudem Yayınları – Din Kültürü HBA",
+    "Nartest Yayınları – Altın Nokta Mavi Seri Bankası",
+    "Nitelik Yayınları – Süper Soru Kitabı",
+    "Hız Yayınları Soru Bankası"],
+    "Zor": ["Bilfen Yayınları –Pro Test Yeni Nesil Soru Bankası","Palme Yayınları – Plus Serisi Yeni Nesil Soru Kitabı"]
   },
   "İNGİLİZCE": {
     "Kolay": ["Tonguç Dinamo"],
