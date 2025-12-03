@@ -19,12 +19,6 @@ const LGS_KAYNAKLAR = {
     "Orta": ["Ulti", "Palme", "Limit Yayınları", "İnkılap Kafası Kafadengi", "Nartest Mavi", "Hız Yayınları", "Fenomen", "Güçlendiren İnkılap Ankara Y.", "Zoom", "Paraf"],
     "Zor": ["Sinan Kuzucu"]
   },
-  "İNGİLİZCE": {
-    "Kolay": ["Tonguç Dinamo"],
-    "Orta": ["İngilizce Kafası Kafadengi", "Palme Plus", "More and More", "Ahead With English", "Joyfull", "Shall We", "Hız Yayınları", "Fenomen", "Güçlendiren İngilizce Ankara Y.", "Zoom", "Paraf"],
-    "Zor": ["YDS Publishing", "Team Elt", "Masterclass", "Yanıt Yayınları"]
-  }, 
-  
   "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ": {
     "Kolay": ["Okyanus Yayınları CLASSMATE Soru Bankası", "Tonguç Yayınları Taktikli Soru Bankası"],
     "Orta": ["Tonguç Yayınları Dinamo Soru Bankası",
@@ -34,6 +28,10 @@ const LGS_KAYNAKLAR = {
     "Nitelik Yayınları – Süper Soru Kitabı",
     "Hız Yayınları Soru Bankası"],
     "Zor": ["Bilfen Yayınları –Pro Test Yeni Nesil Soru Bankası","Palme Yayınları – Plus Serisi Yeni Nesil Soru Kitabı"]
+  }, // <-- Din Kültürü burada bitiyor, sonraki derse geçmek için VİRGÜL KONULDU.
+  "İNGİLİZCE": {
+    "Kolay": ["Tonguç Dinamo"],
+    "Orta": ["İngilizce Kafası Kafadengi", "Palme Plus", "More and More", "Ahead With English", "Joyfull", "Shall We", "Hız Yayınları", "Fenomen", "Güçlendiren İngilizce Ankara Y.", "Zoom", "Paraf"],
+    "Zor": ["YDS Publishing", "Team Elt", "Masterclass", "Yanıt Yayınları"]
   }
 };
-// Diğer tüm script.js kodları bu bloğun hemen altında devam etmelidir.
