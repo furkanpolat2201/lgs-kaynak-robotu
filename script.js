@@ -44,7 +44,7 @@ const kaynakListesi = document.getElementById('kaynak-listesi');
 
 // --- Başlangıç: Ders Seçim Alanını Doldurma ---
 function dersleriDoldur() {
-    const dersler = Object.keys(LGS_KAYNAKLAR); 
+    const dersler = Object.keys(YKS_KAYNAKLAR); 
     
     dersler.forEach(ders => {
         const option = document.createElement('option');
@@ -60,14 +60,16 @@ function dersleriDoldur() {
 dersSecim.addEventListener('change', (event) => {
     const secilenDers = event.target.value;
     
+    // Seviye menüsünü ve etiketi temizle/gizle
     seviyeSecim.innerHTML = '<option value="">-- Seviye Seçiniz --</option>';
     kaynakListesi.innerHTML = '';
     seviyeSecim.style.display = 'none';
     seviyeEtiketi.style.display = 'none';
     
     if (secilenDers) {
-        const seviyeler = Object.keys(LGS_KAYNAKLAR[secilenDers]);
+        const seviyeler = Object.keys(YKS_KAYNAKLAR[secilenDers]);
 
+        // Seviye menüsünü doldur
         seviyeler.forEach(seviye => {
             const option = document.createElement('option');
             option.value = seviye;
@@ -75,6 +77,7 @@ dersSecim.addEventListener('change', (event) => {
             seviyeSecim.appendChild(option);
         });
 
+        // Seviye menüsünü ve etiketi görünür yap
         seviyeSecim.style.display = 'block';
         seviyeEtiketi.style.display = 'block';
     }
@@ -87,24 +90,37 @@ seviyeSecim.addEventListener('change', (event) => {
     kaynakListesi.innerHTML = ''; 
 
     if (secilenDers && secilenSeviye) {
-        const kaynaklar = LGS_KAYNAKLAR[secilenDers][secilenSeviye];
+        const kaynaklar = YKS_KAYNAKLAR[secilenDers][secilenSeviye];
         
-        // Renk atama mantığı
-        let className = 'orta-kaynak';
-        let emoji = '🔵'; 
+        // Seçilen seviyeye göre CSS sınıfı adı ve ikon belirleniyor
+        let className = '';
+        let emoji = '';
         
-        if (secilenSeviye === "Kolay") {
-            className = "kolay-kaynak";
+        if (secilenSeviye === "TEMEL DÜZEY") {
+            className = "kolay-kaynak"; // style.css'deki yeşil renk
             emoji = "🟢"; 
-        } else if (secilenSeviye === "Zor") {
-            className = "zor-kaynak";
-            emoji = "🔴"; 
-        } else if (secilenSeviye === "Tek Seviye") { // Din Kültürü gibi tek seviyeli dersler için (Önceki kodunuzda yoktu, bu yüzden ekledik)
-            className = "orta-kaynak";
+        } else if (secilenSeviye === "ORTA DÜZEY") {
+            className = "orta-kaynak"; // style.css'deki mavi renk
             emoji = "🔵"; 
+        } else if (secilenSeviye === "İLERİ DÜZEY") {
+            className = "zor-kaynak"; // style.css'deki kırmızı renk
+            emoji = "🔴"; 
         }
 
         kaynaklar.forEach(kaynak => {
             const listItem = document.createElement('li');
+            
+            // Emoji'yi kaynak adının önüne ekle
             listItem.innerHTML = `<span class="list-emoji">${emoji}</span> ${kaynak}`;
-            listItem.classList.
+            
+            // Oluşturulan CSS sınıfını <li> öğesine ekle
+            listItem.classList.add(className); 
+            
+            kaynakListesi.appendChild(listItem);
+        });
+    }
+});
+
+// Uygulama yüklendiğinde dersleri doldur
+
+dersleriDoldur();
