@@ -19,16 +19,6 @@ const LGS_KAYNAKLAR = {
     "Orta": ["Ulti", "Palme", "Limit Yayınları", "İnkılap Kafası Kafadengi", "Nartest Mavi", "Hız Yayınları", "Fenomen", "Güçlendiren İnkılap Ankara Y.", "Zoom", "Paraf"],
     "Zor": ["Sinan Kuzucu"]
   },
-  "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ": {
-    "Kolay": ["Okyanus Yayınları CLASSMATE Soru Bankası", "Tonguç Yayınları Taktikli Soru Bankası"],
-    "Orta": ["Tonguç Yayınları Dinamo Soru Bankası",
-    "Palme Yayıncılık Konu Anlatımlı",
-    "Tudem Yayınları – Din Kültürü HBA",
-    "Nartest Yayınları – Altın Nokta Mavi Seri Bankası",
-    "Nitelik Yayınları – Süper Soru Kitabı",
-    "Hız Yayınları Soru Bankası"],
-    "Zor": ["Bilfen Yayınları –Pro Test Yeni Nesil Soru Bankası","Palme Yayınları – Plus Serisi Yeni Nesil Soru Kitabı"]
-  },
   "İNGİLİZCE": {
     "Kolay": ["Tonguç Dinamo"],
     "Orta": ["İngilizce Kafası Kafadengi", "Palme Plus", "More and More", "Ahead With English", "Joyfull", "Shall We", "Hız Yayınları", "Fenomen", "Güçlendiren İngilizce Ankara Y.", "Zoom", "Paraf"],
@@ -44,7 +34,7 @@ const kaynakListesi = document.getElementById('kaynak-listesi');
 
 // --- Başlangıç: Ders Seçim Alanını Doldurma ---
 function dersleriDoldur() {
-    const dersler = Object.keys(YKS_KAYNAKLAR); 
+    const dersler = Object.keys(LGS_KAYNAKLAR); 
     
     dersler.forEach(ders => {
         const option = document.createElement('option');
@@ -60,16 +50,14 @@ function dersleriDoldur() {
 dersSecim.addEventListener('change', (event) => {
     const secilenDers = event.target.value;
     
-    // Seviye menüsünü ve etiketi temizle/gizle
     seviyeSecim.innerHTML = '<option value="">-- Seviye Seçiniz --</option>';
     kaynakListesi.innerHTML = '';
     seviyeSecim.style.display = 'none';
     seviyeEtiketi.style.display = 'none';
     
     if (secilenDers) {
-        const seviyeler = Object.keys(YKS_KAYNAKLAR[secilenDers]);
+        const seviyeler = Object.keys(LGS_KAYNAKLAR[secilenDers]);
 
-        // Seviye menüsünü doldur
         seviyeler.forEach(seviye => {
             const option = document.createElement('option');
             option.value = seviye;
@@ -77,7 +65,6 @@ dersSecim.addEventListener('change', (event) => {
             seviyeSecim.appendChild(option);
         });
 
-        // Seviye menüsünü ve etiketi görünür yap
         seviyeSecim.style.display = 'block';
         seviyeEtiketi.style.display = 'block';
     }
@@ -90,37 +77,15 @@ seviyeSecim.addEventListener('change', (event) => {
     kaynakListesi.innerHTML = ''; 
 
     if (secilenDers && secilenSeviye) {
-        const kaynaklar = YKS_KAYNAKLAR[secilenDers][secilenSeviye];
-        
-        // Seçilen seviyeye göre CSS sınıfı adı ve ikon belirleniyor
-        let className = '';
-        let emoji = '';
-        
-        if (secilenSeviye === "TEMEL DÜZEY") {
-            className = "kolay-kaynak"; // style.css'deki yeşil renk
-            emoji = "🟢"; 
-        } else if (secilenSeviye === "ORTA DÜZEY") {
-            className = "orta-kaynak"; // style.css'deki mavi renk
-            emoji = "🔵"; 
-        } else if (secilenSeviye === "İLERİ DÜZEY") {
-            className = "zor-kaynak"; // style.css'deki kırmızı renk
-            emoji = "🔴"; 
-        }
+        const kaynaklar = LGS_KAYNAKLAR[secilenDers][secilenSeviye];
 
         kaynaklar.forEach(kaynak => {
             const listItem = document.createElement('li');
-            
-            // Emoji'yi kaynak adının önüne ekle
-            listItem.innerHTML = `<span class="list-emoji">${emoji}</span> ${kaynak}`;
-            
-            // Oluşturulan CSS sınıfını <li> öğesine ekle
-            listItem.classList.add(className); 
-            
+            listItem.textContent = kaynak;
             kaynakListesi.appendChild(listItem);
         });
     }
 });
 
 // Uygulama yüklendiğinde dersleri doldur
-
 dersleriDoldur();
