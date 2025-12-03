@@ -23,6 +23,21 @@ const LGS_KAYNAKLAR = {
     "Kolay": ["Tonguç Dinamo"],
     "Orta": ["İngilizce Kafası Kafadengi", "Palme Plus", "More and More", "Ahead With English", "Joyfull", "Shall We", "Hız Yayınları", "Fenomen", "Güçlendiren İngilizce Ankara Y.", "Zoom", "Paraf"],
     "Zor": ["YDS Publishing", "Team Elt", "Masterclass", "Yanıt Yayınları"]
+  },
+  // YENİ EKLENEN DERS
+  "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ": {
+    "Tek Seviye": [
+        "LGS Sihirbazı Din Kültürü Ders Notlarım (Kurul Yayıncılık)",
+        "Poster Notlar (KR Akademi)",
+        "Karekök Yayınları",
+        "Dinlendiren Deneme (Eker Test)",
+        "Dinlendiren Konu Anlatımlı Defter (Eker Test)",
+        "Hız Yayınları",
+        "Kara Kutusu (İnformal Yayınları)",
+        "Ulti Soru Bankası (Bes Yayınları)",
+        "Data Yayınevi",
+        "Kendini Check – Et (Okyanus Yayıncılık)"
+    ]
   }
 };
 
@@ -79,13 +94,14 @@ seviyeSecim.addEventListener('change', (event) => {
     if (secilenDers && secilenSeviye) {
         const kaynaklar = LGS_KAYNAKLAR[secilenDers][secilenSeviye];
 
-        kaynaklar.forEach(kaynak => {
-            const listItem = document.createElement('li');
-            listItem.textContent = kaynak;
-            kaynakListesi.appendChild(listItem);
-        });
-    }
-});
-
-// Uygulama yüklendiğinde dersleri doldur
-dersleriDoldur();
+        // Bu kısım renkli gösterim için yeniden düzenlenmiştir.
+        let className = 'orta-kaynak'; // Tek seviye olduğu için varsayılan bir renk (mavi/orta) atıyoruz.
+        let emoji = '🔵'; 
+        
+        if (secilenSeviye === "Kolay") {
+            className = "kolay-kaynak";
+            emoji = "🟢"; 
+        } else if (secilenSeviye === "Zor") {
+            className = "zor-kaynak";
+            emoji = "🔴"; 
+        }
